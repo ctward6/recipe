@@ -32,7 +32,7 @@ footer, header, hgroup, menu, nav, section {
 body {
     line-height: 1;
 }
-ol, ul {
+ol, ul, menu {
     list-style: none;
 }
 blockquote, q {
@@ -72,6 +72,8 @@ img {
 
 /* End of boilerplate CSS */
 
+/* Font styling */
+
 p, dd, li, nav, input {
     font-family: "Montserrat", sans-serif;
     font-optical-sizing: auto;
@@ -108,4 +110,290 @@ h3 {
 
 nav a, nav span, menu li, #social li, footer {
     font-size: 20px;
+}
+
+/* ------------ */
+
+body {
+    display: flex;
+    flex-direction: column;
+    background-color: #F2F2F2;
+}
+
+footer{
+    order: 2;
+}
+
+a {
+    text-decoration: none;
+}
+
+/* Menu styling */
+
+nav {
+    width: 100%;
+    position: fixed;
+    top: 0;
+    display: grid;
+    grid-template-columns: 1fr 3fr 1fr;
+    grid-template-rows: 83px 1fr;
+    grid-template-areas: 
+    "hamburger logo avatar"
+    "menu menu menu";
+    background-color: #FFFFFF;
+    box-shadow: 0px 4px 2px rgba(0, 0, 0, .2);
+}
+
+nav ul {
+    overflow: hidden;
+    max-height: 0;
+    transition: max-height .2s ease-out;
+}
+label {
+    cursor: pointer;
+    display: inline-block;
+    padding: 28px 20px;
+    position: relative;
+    user-select: none;
+}
+/* label span {
+    background-color: #000;
+    display: block;
+    height: 2px;
+    position: relative;
+    transition: background-color .2s ease-out;
+    width: 18px;
+}
+label span:before, label span:after {
+    background: #000;
+    content: '';
+    display: block;
+    height: 100%;
+    position: absolute;
+    transition: all .2s ease-out;
+    width: 100%;
+} */
+/* label span:before {
+    top: 5px;
+}
+label span:after {
+    top: -5px;
+} */
+input[type="checkbox"] {
+    display: none;
+}
+input:checked ~ ul {
+    max-height: 900px;
+}
+/* input:checked ~ label span {
+    background: transparent;
+}
+input:checked ~ label span:before {
+    transform: rotate(-45deg);
+}
+input:checked ~ label span:after {
+    transform: rotate(45deg);
+} */
+input:checked ~ label:not(.steps) span:before, input:checked ~ label:not(.steps) span:after {
+    top: 0;
+}
+
+@media screen and (min-width:768px) {
+    nav ul {
+        overflow: visible;
+        position: absolute;
+        top: 0;
+        display: grid;
+        grid-template-columns: 1fr 1fr 1fr 1fr 1fr;
+    }
+    /*label span,*/ input {
+        display: none;
+    }
+}
+
+nav h2 {
+    display: none;
+}
+
+nav ul img {
+    display: none;
+}
+
+nav > a:first-of-type > div:first-of-type {
+    display: none;
+}
+
+
+
+
+
+nav label[for="dropdown"] {
+    /* float: left; */
+    grid-area: hamburger;
+    display: grid;
+    align-content: center;
+    justify-content: center;
+    text-align: center;
+}
+
+nav label[for="dropdown"] span {
+    color: black;
+}
+
+nav label[for="dropdown"] svg {
+    order: -1;
+}
+
+/* nav ul {
+    order: 4;
+} */
+
+/* Logo */
+
+.logo-div {
+    background-color: #EB5428;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    grid-area: logo;
+    height: 100%;
+
+}
+
+/* .icon-tabler-tools-kitchen {
+    background-color: #EB5428;
+    grid-area: logo;
+    width: 100%;
+    display: flex;
+    flex: 1 0 auto;
+    justify-content: center;
+    align-content: center;
+    height: 100%;
+    padding: 10px;
+    transform-origin: 50% 50%;
+}  */
+
+/* Avatar */
+
+nav ul + a {
+    grid-area: avatar;
+    display: grid;
+    align-content: center;
+    justify-content: center;
+    justify-items: center;
+    text-align: center;
+}
+
+nav ul + a span {
+    color: black;
+}
+
+nav ul + a svg {
+    order: -1;
+    /* justify-self: center; */
+}
+
+nav ul {
+    grid-area: menu;
+    text-align: center;
+}
+
+nav ul li a {
+    padding: 20px;
+    color: #EB5428;
+
+}
+
+/* Search styling */
+
+.search-container {
+    order: -1; /* compared to other elements in the body, which is set to display: flex; */
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-top: 94px; /* for whole element to show, should be 83px minimum */
+    padding: 26px;
+}
+
+.search-bar {
+    display: flex;
+    outline: 2px solid #EB5428;
+    height: 40px;
+    align-items: center;
+    overflow: hidden;
+}
+
+.search-icon-container {
+    padding: 2px 2px 2px 7px;
+    background-color: #EB5428;
+    display: flex;
+
+}
+
+.search-icon-container svg {
+    height: 40px;
+}
+
+label[for="search"] {
+    display: none;
+}
+
+input[type="search"] {
+    border: none;
+    height: 40px;
+}
+
+input[type="search"]::placeholder {
+    opacity: 0.6;
+    font-size: 14px;
+}
+
+/* .icon-tabler-user-circle { */
+    /* float: right; */
+    /* grid-area: avatar; */
+/* } */
+
+
+/* Equivalent to menu class in JS Fiddle */
+/* nav ul {
+
+} */
+
+/* Header and menu styling */
+
+header h1 {
+    text-align: center;
+}
+
+menu {
+    /* display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    justify-content: center;
+    justify-items: center;
+    align-content: center; */
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-top: 18px;
+}
+
+menu li {
+    flex: 1 1 auto;
+    padding: 10px;
+}
+
+menu li a {
+    display: grid;
+    grid-template-rows: repeat(2, auto);
+    justify-content: center;
+    justify-items: center;
+    align-content: center;
+}
+
+menu li div {
+    color: #EB5428;
+}
+
+menu li svg {
+    order: -1;
 }

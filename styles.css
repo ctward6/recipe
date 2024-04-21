@@ -307,11 +307,11 @@ nav ul li a {
 /* Search styling */
 
 .search-container {
-    order: -1; /* compared to other elements in the body, which is set to display: flex; */
+    order: -1; /* Compared to other elements in the body, which is set to display: flex; */
     display: flex;
     justify-content: center;
     align-items: center;
-    margin-top: 94px; /* for whole element to show, should be 83px minimum */
+    margin-top: 94px; /* For whole element to show, should be 83px minimum */
     padding: 26px;
 }
 
@@ -320,18 +320,19 @@ nav ul li a {
     outline: 2px solid #EB5428;
     height: 40px;
     align-items: center;
-    overflow: hidden;
+    overflow: hidden; /* There shouldn't be any overflow; this is just here for safety */
+    width: 340px;
 }
 
 .search-icon-container {
     padding: 2px 2px 2px 7px;
     background-color: #EB5428;
     display: flex;
-
+    align-self: flex-end;
 }
 
 .search-icon-container svg {
-    height: 40px;
+    height: 36px; /* 40px - 2px outline on top and 2px outline on bottom */
 }
 
 label[for="search"] {
@@ -341,6 +342,7 @@ label[for="search"] {
 input[type="search"] {
     border: none;
     height: 40px;
+    width: 100%;
 }
 
 input[type="search"]::placeholder {

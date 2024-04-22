@@ -72,19 +72,165 @@ img {
 
 /* End of boilerplate CSS */
 
+/* Article styling */
+
+/* Article > div > Details styling */
+
+dl {
+    margin-top: 10px;
+    margin-bottom: 5px;
+}
+
+dt, dd {
+    display: inline;
+    line-height: 1.5em;
+}
+
+dd {
+    margin-left: 12px;
+}
+
+/* The following works around the fact that you can't have a <br> inside a <dl> */
+dd::after {
+    content: "";
+    display: block;
+}
+
+/* Article > div > Heading styling */
+
+article div > h2 {
+    margin-top: 1em;
+}
+
+/* Article > div > Ingredients styling */
+
+article div ul {
+    list-style-type: square;
+    padding-left: 12px;
+    margin-top: 10px;
+}
+
+article div ul li {
+    padding: 0.5em;
+}
+
+/* Article > div > Directions styling */
+
+article div ol {
+    list-style-type: decimal;
+    padding-left: 14px;
+    margin-top: 1em;
+    line-height: 1.5em;
+}
+
+article div ol li {
+    padding: 0.375em;
+    /*
+    - ul padding-left is 12px.
+    - ul li padding is 0.5em.
+    - ol padding-left is 14px.
+    - ol li padding is 0.5em - the 2px difference (0.125em) = 0.375em.
+    - This way, all li elements line up.
+    */
+}
+
+article div ol li:nth-child(n + 2) {
+    margin-top: 1em;
+}
+
+/* Aside ("Side dishes") styling */
+
+aside {
+    background-color: #7ABFBF;
+}
+
+aside h3 {
+    text-align: left;
+}
+
+aside > div {
+    display: grid;
+    grid-template-rows: repeat(4, 1fr);
+    row-gap: 30px;
+    margin-top: 2.75em;
+}
+
+aside a {
+    color: #0D0D0D;
+    display: grid;
+    grid-template-columns: 1fr 3fr;
+    grid-template-rows: 2em 2em 1em;
+}
+
+/* Adds a bit of spacing between the div containing the stars and "Rating" */
+aside a div {
+    margin-top: 4px;
+}
+
+/* Go to every food item except salsa, start at the second star from the last (going in reverse), and fill in each one with #EB5428 */
+aside a:not(:nth-child(2)) div svg:nth-last-child(n + 2) {
+    fill: #EB5428;
+}
+
+/* Go to the salsa food item, start at the first star, and fill in each one with #EB5428 */
+aside a:nth-child(2) div svg:nth-child(1n) {
+    fill: #EB5428;
+}
+
+aside img {
+    max-width: 90px;
+    margin-right: 20px;
+}
+
+aside a img {
+    order: -1;
+}
+
+aside a :not(img) {
+    grid-column-start: 2;
+}
+
+/* Body and direct child styling */
+
+
+article, .search-container {
+    background-color: #F2F2F2;
+}
+
+article > div, aside, footer {
+    padding: 10px;
+}
+
+body {
+    max-width: 414px;
+    display: flex;
+    flex-direction: column;
+    background-color: rgba(122, 191, 191, .5);
+    margin: 0 auto;
+}
+
 /* Font styling */
+
+a {
+    text-decoration: none;
+}
 
 p, dd, li, nav, input {
     font-family: "Montserrat", sans-serif;
-    font-optical-sizing: auto;
+    /* font-optical-sizing: auto; */
     font-weight: 400;
     font-style: normal;
     font-size: 16px;
 }
 
-dt {
+p {
+    line-height: 1.5em;
+    margin-bottom: 1.5em;
+}
+
+dt, aside span {
     font-family: "Montserrat", sans-serif;
-    font-optical-sizing: auto;
+    /* font-optical-sizing: auto; */
     font-weight: 700;
     font-style: normal;
     font-size: 16px;
@@ -94,6 +240,10 @@ h1, h2, h3, nav a, nav span, menu li, #social li, footer {
     font-family: "Bebas Neue", sans-serif;
     font-weight: 400;
     font-style: normal;
+}
+
+h1, h2, h3 {
+    text-align: center;
 }
 
 h1 {
@@ -112,26 +262,106 @@ nav a, nav span, menu li, #social li, footer {
     font-size: 20px;
 }
 
-/* ------------ */
+/* Footer styling */
 
-body {
+footer {
+    order: 2;
+    background-color: #FFFFFF;
+    border-top: 1em #F2F2F2 solid;
     display: flex;
     flex-direction: column;
-    background-color: #F2F2F2;
+    gap: 20px;
 }
 
-footer{
+footer img {
+    max-width: 200px;
+    margin: 0 auto;
+}
+
+small {
+    margin-top: 8px;
     order: 2;
+    text-align: center;
+
 }
 
-a {
-    text-decoration: none;
+footer h2, footer h3 {
+    display: none;
 }
 
-/* Menu styling */
+footer a {
+    color: #EB5428;
+}
+
+/* ul > li > a > div + svg */
+
+footer ul {
+    margin-top: 28px;
+    display: flex;
+    justify-content: center;
+}
+
+footer li {
+    flex: 1 1 auto;
+}
+
+footer li a {
+    display: grid;
+    grid-template-rows: repeat(2, auto);
+    justify-content: center;
+    justify-items: center;
+    align-content: center;
+}
+
+footer li a svg {
+    order: -1;
+}
+
+/* Header and menu (quick links) styling */
+
+header h1 {
+    text-align: center;
+}
+
+menu {
+    /* display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    justify-content: center;
+    justify-items: center;
+    align-content: center; */
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-top: 18px;
+}
+
+menu li {
+    flex: 1 1 auto;
+    padding: 10px;
+}
+
+menu li a {
+    display: grid;
+    grid-template-rows: repeat(2, auto);
+    justify-content: center;
+    justify-items: center;
+    align-content: center;
+}
+
+menu li div {
+    color: #EB5428;
+}
+
+menu li svg {
+    order: -1;
+}
+
+/* Nav styling
+Starts with nav and checkbox styling + then goes left to right, top to bottom for each child element */
 
 nav {
     width: 100%;
+    max-width: 414px;
     position: fixed;
     top: 0;
     display: grid;
@@ -149,6 +379,7 @@ nav ul {
     max-height: 0;
     transition: max-height .2s ease-out;
 }
+
 label {
     cursor: pointer;
     display: inline-block;
@@ -156,6 +387,7 @@ label {
     position: relative;
     user-select: none;
 }
+
 /* label span {
     background-color: #000;
     display: block;
@@ -179,21 +411,27 @@ label span:before, label span:after {
 label span:after {
     top: -5px;
 } */
+
 input[type="checkbox"] {
     display: none;
 }
+
 input:checked ~ ul {
     max-height: 900px;
 }
+
 /* input:checked ~ label span {
     background: transparent;
 }
+
 input:checked ~ label span:before {
     transform: rotate(-45deg);
 }
+
 input:checked ~ label span:after {
     transform: rotate(45deg);
 } */
+
 input:checked ~ label:not(.steps) span:before, input:checked ~ label:not(.steps) span:after {
     top: 0;
 }
@@ -206,7 +444,7 @@ input:checked ~ label:not(.steps) span:before, input:checked ~ label:not(.steps)
         display: grid;
         grid-template-columns: 1fr 1fr 1fr 1fr 1fr;
     }
-    /*label span,*/ input {
+    /* label span, input */ label[for="dropdown"], input[type="checkbox"] {
         display: none;
     }
 }
@@ -222,10 +460,6 @@ nav ul img {
 nav > a:first-of-type > div:first-of-type {
     display: none;
 }
-
-
-
-
 
 nav label[for="dropdown"] {
     /* float: left; */
@@ -248,7 +482,7 @@ nav label[for="dropdown"] svg {
     order: 4;
 } */
 
-/* Logo */
+/* Nav > Logo */
 
 .logo-div {
     background-color: #EB5428;
@@ -273,7 +507,7 @@ nav label[for="dropdown"] svg {
     transform-origin: 50% 50%;
 }  */
 
-/* Avatar */
+/* Nav > Avatar */
 
 nav ul + a {
     grid-area: avatar;
@@ -293,6 +527,8 @@ nav ul + a svg {
     /* justify-self: center; */
 }
 
+/* Nav > Dropdown styling */
+
 nav ul {
     grid-area: menu;
     text-align: center;
@@ -311,7 +547,7 @@ nav ul li a {
     display: flex;
     justify-content: center;
     align-items: center;
-    margin-top: 94px; /* For whole element to show, should be 83px minimum */
+    margin-top: 83px; /* For whole element to show, should be 83px minimum */
     padding: 26px;
 }
 
@@ -322,6 +558,7 @@ nav ul li a {
     align-items: center;
     overflow: hidden; /* There shouldn't be any overflow; this is just here for safety */
     width: 340px;
+    margin-top: 11px;
 }
 
 .search-icon-container {
@@ -361,41 +598,3 @@ input[type="search"]::placeholder {
 
 } */
 
-/* Header and menu styling */
-
-header h1 {
-    text-align: center;
-}
-
-menu {
-    /* display: grid;
-    grid-template-columns: repeat(4, 1fr);
-    justify-content: center;
-    justify-items: center;
-    align-content: center; */
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    margin-top: 18px;
-}
-
-menu li {
-    flex: 1 1 auto;
-    padding: 10px;
-}
-
-menu li a {
-    display: grid;
-    grid-template-rows: repeat(2, auto);
-    justify-content: center;
-    justify-items: center;
-    align-content: center;
-}
-
-menu li div {
-    color: #EB5428;
-}
-
-menu li svg {
-    order: -1;
-}

@@ -81,6 +81,12 @@ dl {
     margin-bottom: 5px;
 }
 
+@media screen and (min-width: 768px) {
+    dl {
+        text-align: center;
+    }
+}
+
 dt, dd {
     display: inline;
     line-height: 1.5em;
@@ -96,7 +102,7 @@ dd::after {
     display: block;
 }
 
-/* Article > div > Heading styling */
+/* Article > div > All headings styling */
 
 article div > h2 {
     margin-top: 1em;
@@ -114,6 +120,27 @@ article div ul li {
     padding: 0.5em;
 }
 
+/* @media screen and (min-width: 768px) {
+    article div ul li {
+        padding-right: 0;
+    }
+} */
+
+@media screen and (min-width: 768px) {
+    article > div > div {
+        display: grid;
+        grid-template-columns: 0.9fr 2fr;
+    }
+}
+
+@media screen and (min-width: 768px) {
+    article > div > div > div:first-of-type h2 {
+        text-align: left;
+        padding-left: 1.125em;
+    }
+}
+
+
 /* Article > div > Directions styling */
 
 article div ol {
@@ -121,6 +148,13 @@ article div ol {
     padding-left: 14px;
     margin-top: 1em;
     line-height: 1.5em;
+}
+
+@media screen and (min-width: 768px) {
+    article div ol {
+        padding-left: 0px;
+        
+    }
 }
 
 article div ol li {
@@ -133,6 +167,13 @@ article div ol li {
     - This way, all li elements line up.
     */
 }
+
+@media screen and (min-width: 768px) {
+    article div ol li {
+        padding: 0;
+    }
+}
+
 
 article div ol li:nth-child(n + 2) {
     margin-top: 1em;
@@ -392,12 +433,13 @@ Starts with nav and checkbox styling + then goes left to right, top to bottom fo
 body > div {
     order: -1;
     background-color: #F2F2F2;
+    z-index: 1;
 }
 
 @media screen and (min-width: 768px) {
     body > div {
         display: flex;
-        position: relative;
+        position: fixed;
     }
 }
 
@@ -636,7 +678,7 @@ nav ul li a {
         position: absolute;
         width: 315px;
         top: 21px;
-        right: 115px;
+        left: 350px;
         z-index: 1;
         margin-top: 0;
         margin-bottom: 0;

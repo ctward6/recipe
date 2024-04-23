@@ -209,6 +209,12 @@ body {
     margin: 0 auto;
 }
 
+@media screen and (min-width: 768px) {
+    body {
+        max-width: 768px;
+    }
+}
+
 /* Font styling */
 
 a {
@@ -319,8 +325,22 @@ footer li a svg {
 
 /* Header and menu (quick links) styling */
 
+header {
+    position: relative;
+}
+
 header h1 {
     text-align: center;
+}
+
+@media screen and (min-width: 768px) {
+    header {
+        margin-top: 211px;
+    }
+    header h1 {
+        padding: 30px 0 12px 10px;
+        text-align: left;
+    }
 }
 
 menu {
@@ -333,6 +353,16 @@ menu {
     align-items: center;
     justify-content: center;
     margin-top: 18px;
+}
+
+@media screen and (min-width: 768px) {
+    menu {
+        position: absolute;
+        width: 100%;
+        margin-top: 0px;
+        padding: 10px;
+        background-color: rgba(242, 242, 242, 0.8);
+    }
 }
 
 menu li {
@@ -359,6 +389,18 @@ menu li svg {
 /* Nav styling
 Starts with nav and checkbox styling + then goes left to right, top to bottom for each child element */
 
+body > div {
+    order: -1;
+    background-color: #F2F2F2;
+}
+
+@media screen and (min-width: 768px) {
+    body > div {
+        display: flex;
+        position: relative;
+    }
+}
+
 nav {
     width: 100%;
     max-width: 414px;
@@ -374,10 +416,12 @@ nav {
     box-shadow: 0px 4px 2px rgba(0, 0, 0, .2);
 }
 
-nav ul {
-    overflow: hidden;
-    max-height: 0;
-    transition: max-height .2s ease-out;
+@media screen and (min-width: 768px) {
+    nav {
+        max-width: 768px;
+        grid-template-columns: 75px 1fr 75px;
+        grid-template-rows: 83px;
+    }
 }
 
 label {
@@ -437,13 +481,6 @@ input:checked ~ label:not(.steps) span:before, input:checked ~ label:not(.steps)
 }
 
 @media screen and (min-width:768px) {
-    nav ul {
-        overflow: visible;
-        position: absolute;
-        top: 0;
-        display: grid;
-        grid-template-columns: 1fr 1fr 1fr 1fr 1fr;
-    }
     /* label span, input */ label[for="dropdown"], input[type="checkbox"] {
         display: none;
     }
@@ -453,21 +490,22 @@ nav h2 {
     display: none;
 }
 
-nav ul img {
-    display: none;
-}
-
 nav > a:first-of-type > div:first-of-type {
     display: none;
 }
 
 nav label[for="dropdown"] {
-    /* float: left; */
     grid-area: hamburger;
     display: grid;
     align-content: center;
     justify-content: center;
     text-align: center;
+}
+
+@media screen and (min-width: 768px) {
+    nav label[for="dropdown"] {
+        display: none;
+    }
 }
 
 nav label[for="dropdown"] span {
@@ -477,10 +515,6 @@ nav label[for="dropdown"] span {
 nav label[for="dropdown"] svg {
     order: -1;
 }
-
-/* nav ul {
-    order: 4;
-} */
 
 /* Nav > Logo */
 
@@ -493,19 +527,6 @@ nav label[for="dropdown"] svg {
     height: 100%;
 
 }
-
-/* .icon-tabler-tools-kitchen {
-    background-color: #EB5428;
-    grid-area: logo;
-    width: 100%;
-    display: flex;
-    flex: 1 0 auto;
-    justify-content: center;
-    align-content: center;
-    height: 100%;
-    padding: 10px;
-    transform-origin: 50% 50%;
-}  */
 
 /* Nav > Avatar */
 
@@ -530,26 +551,69 @@ nav ul + a svg {
 /* Nav > Dropdown styling */
 
 nav ul {
+    overflow: hidden;
+    max-height: 0;
+    transition: max-height .2s ease-out;
     grid-area: menu;
     text-align: center;
+}
+
+@media screen and (min-width: 768px) {
+    nav ul {
+        position: relative;
+        max-height: 100vh;
+        height: 128px;
+        display: flex;
+        justify-content: center;
+        transition: none;
+    }
+}
+
+nav ul img {
+    display: none;
+}
+
+@media screen and (min-width: 768px) {
+    nav ul img {
+        display: inline;
+        max-width: 60px;
+    }
 }
 
 nav ul li a {
     padding: 20px;
     color: #EB5428;
+}
 
+@media screen and (min-width: 768px) {
+    nav ul li a {
+        display: grid;
+        justify-content: center;
+        justify-items: center;
+        align-content: center;
+        gap: 8px;
+    }
+}
+
+@media screen and (min-width: 768px) {
+    nav ul li a img {
+        order: -1;
+    }
 }
 
 /* Search styling */
 
-.search-container {
-    order: -1; /* Compared to other elements in the body, which is set to display: flex; */
+/* The div w/ the class .search-container has been commented out of the HTML */
+
+/* .search-container {
+    order: -1; /* Compared to other elements in the body, which is set to display: flex;
     display: flex;
     justify-content: center;
     align-items: center;
-    margin-top: 83px; /* For whole element to show, should be 83px minimum */
+    margin-top: 83px; /* For whole element to show, should be 83px minimum 
     padding: 26px;
-}
+} */
+
 
 .search-bar {
     display: flex;
@@ -558,7 +622,25 @@ nav ul li a {
     align-items: center;
     overflow: hidden; /* There shouldn't be any overflow; this is just here for safety */
     width: 340px;
-    margin-top: 11px;
+    /* margin-top: 11px; */
+
+    /* New styles for when .search-container is commented out */
+    margin: 0 auto;
+    margin-top: 120px;
+    margin-bottom: 24px;
+
+}
+
+@media screen and (min-width: 768px) {
+    .search-bar {
+        position: fixed;
+        width: 315px;
+        top: 21px;
+        right: 115px;
+        z-index: 1;
+        margin-top: 0;
+        margin-bottom: 0;
+    }
 }
 
 .search-icon-container {
@@ -567,6 +649,7 @@ nav ul li a {
     display: flex;
     align-self: flex-end;
 }
+
 
 .search-icon-container svg {
     height: 36px; /* 40px - 2px outline on top and 2px outline on bottom */

@@ -2,9 +2,8 @@
 
 :root {
     --default-duration: .15s;
-    --duration-2: .25s; /* use with ease-in */
+    --duration-2: .25s; /* Looks good with ease-in */
 }
-
 
 /* http://meyerweb.com/eric/tools/css/reset/
 v2.0 | 20110126
@@ -86,13 +85,6 @@ article p {
     padding: 10px;
 }
 
-/* @media screen and (min-width: 1280px) {
-    article div:has(p) {
-        width: 100px;
-    }
-} */
-
-
 /* Article > div > Details styling */
 
 dl {
@@ -116,6 +108,7 @@ dd {
 }
 
 /* The following works around the fact that you can't have a <br> inside a <dl> */
+
 dd::after {
     content: "";
     display: block;
@@ -165,12 +158,6 @@ article div ul li {
     padding: 0.5em;
 }
 
-/* @media screen and (min-width: 768px) {
-    article div ul li {
-        padding-right: 0;
-    }
-} */
-
 @media screen and (min-width: 768px) {
     article > div > div:nth-of-type(2) {
         display: grid;
@@ -193,7 +180,6 @@ article div ul li {
     }
 }
 
-
 /* Article > div > Directions styling */
 
 article div ol {
@@ -212,13 +198,6 @@ article div ol {
 
 article div ol li {
     padding: 0.375em;
-    /*
-    - ul padding-left is 12px.
-    - ul li padding is 0.5em.
-    - ol padding-left is 14px.
-    - ol li padding is 0.5em - the 2px difference (0.125em) = 0.375em.
-    - This way, all li elements line up.
-    */
 }
 
 @media screen and (min-width: 768px) {
@@ -226,7 +205,6 @@ article div ol li {
         padding: 0;
     }
 }
-
 
 article div ol li:nth-child(n + 2) {
     margin-top: 1em;
@@ -246,12 +224,6 @@ aside h2 {
     padding-top: 10px;
 }
 
-/* @media screen and (min-width: 768px) {
-    aside h2 {
-        padding-top: 1.5rem;
-    }
-} */
-
 @media screen and (min-width: 1280px) {
     aside h2 {
         padding-top: 2rem;
@@ -261,7 +233,6 @@ aside h2 {
 aside > div {
     display: grid;
     grid-template-rows: repeat(4, 1fr);
-    /* row-gap: 30px; */
     margin-top: 0.625em;
 }
 
@@ -269,8 +240,6 @@ aside > div {
     aside > div {
         grid-template-columns: repeat(2, 1fr);
         grid-template-rows: repeat(2, 1fr);
-        /* padding-bottom: 10px; */
-        /* margin-top: 1.5em; */
     }
 }
 
@@ -312,9 +281,7 @@ aside a:hover {
     aside a {
         display: flex;
         flex-direction: column;
-        /* justify-content: flex-start; */
         align-items: start;
-        /* width: 100%; */
         padding: 24px;
     }
 }
@@ -360,15 +327,11 @@ aside a :not(img) {
         margin-top: 6px;
         margin-bottom: 12px;
     }
-    /* 
-    aside span {
-        margin-top: auto; –--- Uncomment this declaration after you submit the assignment. I like it better this way, but it doesn't match the mockups. 
-    } */
 }
 
 /* Body and direct child styling */
 
-/* Empty recipe div relatively positioned so "Jump to Recipe" link takes you visually to the right place without the nav covering it up */
+/* Empty recipe div relatively positioned so "Jump to Recipe" link takes you visually to the right place without the fixed nav covering it up */
 #recipe {
     position: relative;
     top: -93px;
@@ -385,7 +348,6 @@ aside a :not(img) {
         top: -128px;
     }
 }
-
 
 article, .search-container {
     background-color: #F2F2F2;
@@ -435,7 +397,6 @@ a {
 
 p, dd, li, nav, input {
     font-family: "Montserrat", sans-serif;
-    /* font-optical-sizing: auto; */
     font-weight: 400;
     font-style: normal;
     font-size: 16px;
@@ -443,12 +404,10 @@ p, dd, li, nav, input {
 
 p {
     line-height: 1.5em;
-    /* margin-bottom: 1.5em; */
 }
 
 dt, aside span {
     font-family: "Montserrat", sans-serif;
-    /* font-optical-sizing: auto; */
     font-weight: 700;
     font-style: normal;
     font-size: 16px;
@@ -657,11 +616,6 @@ header h1 {
 }
 
 menu {
-    /* display: grid;
-    grid-template-columns: repeat(4, 1fr);
-    justify-content: center;
-    justify-items: center;
-    align-content: center; */
     display: flex;
     align-items: center;
     justify-content: center;
@@ -718,9 +672,6 @@ menu li:hover {
         width: 128px;
         padding: 24px 0;
     }
-    /* menu li:first-child {
-        padding-top: 24px;
-    } */
 }
 
 menu li a {
@@ -755,7 +706,6 @@ body > div {
 
 @media screen and (min-width: 768px) {
     body > div {
-        /* display: flex; */
         position: fixed;
         width: 768px;
     }
@@ -809,30 +759,6 @@ label {
     user-select: none;
 }
 
-/* label span {
-    background-color: #000;
-    display: block;
-    height: 2px;
-    position: relative;
-    transition: background-color .2s ease-out;
-    width: 18px;
-}
-label span:before, label span:after {
-    background: #000;
-    content: '';
-    display: block;
-    height: 100%;
-    position: absolute;
-    transition: all .2s ease-out;
-    width: 100%;
-} */
-/* label span:before {
-    top: 5px;
-}
-label span:after {
-    top: -5px;
-} */
-
 input[type="checkbox"] {
     display: none;
 }
@@ -841,24 +767,12 @@ input:checked ~ ul {
     max-height: 900px;
 }
 
-/* input:checked ~ label span {
-    background: transparent;
-}
-
-input:checked ~ label span:before {
-    transform: rotate(-45deg);
-}
-
-input:checked ~ label span:after {
-    transform: rotate(45deg);
-} */
-
 input:checked ~ label:not(.steps) span:before, input:checked ~ label:not(.steps) span:after {
     top: 0;
 }
 
 @media screen and (min-width:768px) {
-    /* label span, input */ label[for="dropdown"], input[type="checkbox"] {
+    label[for="dropdown"], input[type="checkbox"] {
         display: none;
     }
 }
@@ -895,30 +809,7 @@ nav label[for="dropdown"]:hover span {
 
 nav label[for="dropdown"] svg path:nth-child(2) {
     stroke: #FFFFFF;
-    /* transition: stroke 0s; */
 }
-
-/* Hover effects - don't use */
-
-/* nav label[for="dropdown"]:hover {
-    background-color: #EB5428;
-    border: 2px solid #FFFFFF;
-}
-
-nav label[for="dropdown"]:hover svg {
-    stroke: #FFFFFF;
-}
-
-nav label[for="dropdown"]:hover svg path:nth-child(2) {
-    stroke: #EB5428;
-}
-
-nav label[for="dropdown"]:hover span {
-    color: #FFFFFF;
-} */
-
-
-
 
 @media screen and (min-width: 768px) {
     nav label[for="dropdown"] {
@@ -975,12 +866,16 @@ nav ul + a svg {
     }
 }
 
+/* ------------ */
+
 nav ul + a span {
     color: #0D0D0D;
     background-color: #FFFFFF;
     padding: 2px 3px 0px 3px;
     transition: color var(--default-duration), background-color var(--default-duration);
 }
+
+/* Hover styles for smallest viewport widths */
 
 nav ul + a:hover span {
     background-color: #EB5428;
@@ -997,7 +892,6 @@ nav ul + a:hover span {
 
 nav ul + a svg {
     order: -1;
-    /* justify-self: center; */
 }
 
 /* Nav > Dropdown styling */
@@ -1039,6 +933,7 @@ nav ul li a {
 }
 
 /* This rule is just to apply a transition to the background-color */
+
 nav ul li {
     transition: background-color var(--default-duration);
 }
@@ -1049,7 +944,8 @@ nav ul li {
     }
 }
 
-/* Hover effects */ 
+/* Hover effects */
+
 nav ul li:hover {
     background-color: #EB5428;
 }
@@ -1075,28 +971,13 @@ nav ul li:hover a {
 
 /* Search styling */
 
-/* The div w/ the class .search-container has been commented out of the HTML */
-
-/* .search-container {
-    order: -1; /* Compared to other elements in the body, which is set to display: flex;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    margin-top: 83px; /* For whole element to show, should be 83px minimum 
-    padding: 26px;
-} */
-
-
 .search-bar {
     display: flex;
     outline: 2px solid #EB5428;
     height: 40px;
     align-items: center;
-    overflow: hidden; /* There shouldn't be any overflow; this is just here for safety */
+    overflow: hidden;
     width: 340px;
-    /* margin-top: 11px; */
-
-    /* New styles for when .search-container is commented out */
     margin: 0 auto;
     margin-top: 120px;
     margin-bottom: 24px;
@@ -1117,7 +998,6 @@ nav ul li:hover a {
 
 @media screen and (min-width: 1280px) {
     .search-bar {
-        /* left: 50%; */
         right: 0%;
         top: 45px;
         transform: translate(-50%);
@@ -1158,15 +1038,3 @@ input[type="search"]::placeholder {
     opacity: 0.6;
     font-size: 14px;
 }
-
-/* .icon-tabler-user-circle { */
-    /* float: right; */
-    /* grid-area: avatar; */
-/* } */
-
-
-/* Equivalent to menu class in JS Fiddle */
-/* nav ul {
-
-} */
-
